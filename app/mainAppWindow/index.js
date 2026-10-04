@@ -27,6 +27,7 @@ function authPopupResult(parent) {
     action: 'allow',
     overrideBrowserWindowOptions: {
       modal: true,
+      autoHideMenuBar: true,
       parent,
       width: 520,
       height: 700,
