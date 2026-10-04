@@ -2,6 +2,7 @@ const { BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const { loadConfig, saveConfig } = require('../config');
 const { t } = require('../i18n');
+const { getAppIcon } = require('../appIcon');
 
 const STRING_KEYS = [
   'settings.title',
@@ -75,6 +76,7 @@ function createSettingsWindow(parent) {
     width: 480,
     height: 660,
     title: t('settings.title'),
+    icon: getAppIcon(),
     parent,
     backgroundColor: '#f5f5f7',
     autoHideMenuBar: true,

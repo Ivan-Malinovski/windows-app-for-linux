@@ -1,6 +1,7 @@
 const { BrowserWindow, ipcMain, nativeTheme } = require('electron');
 const path = require('path');
 const { t } = require('../i18n');
+const { getAppIcon } = require('../appIcon');
 
 const STRING_KEYS = [
   'title', 'instructions', 'hint', 'cancel',
@@ -22,6 +23,7 @@ function createQrDialog(parent, { onCancel }) {
     height: 600,
     useContentSize: true,
     title: t('passkey.title'),
+    icon: getAppIcon(),
     parent: parent || undefined,
     modal: Boolean(parent),
     resizable: false,

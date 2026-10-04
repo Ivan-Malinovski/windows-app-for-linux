@@ -1,6 +1,7 @@
 const { BrowserWindow, session, shell } = require('electron');
 const path = require('path');
 const config = require('../config');
+const { getAppIcon } = require('../appIcon');
 const { createTray, rebuildMenu } = require('../tray');
 const windowState = require('./windowState');
 const {
@@ -27,6 +28,7 @@ function authPopupResult(parent) {
     action: 'allow',
     overrideBrowserWindowOptions: {
       modal: true,
+      icon: getAppIcon(),
       autoHideMenuBar: true,
       parent,
       width: 520,
@@ -78,6 +80,7 @@ function createAvdWindow(url) {
     minWidth: config.window.minWidth,
     minHeight: config.window.minHeight,
     title: 'Windows App — Session',
+    icon: getAppIcon(),
     backgroundColor: '#000000',
     autoHideMenuBar: true,
     webPreferences: {
@@ -176,6 +179,7 @@ async function createMainWindow() {
   mainWindow = new BrowserWindow({
     ...savedState,
     title: 'Windows App',
+    icon: getAppIcon(),
     backgroundColor: '#1a1a2e',
     autoHideMenuBar: true,
     webPreferences: {
